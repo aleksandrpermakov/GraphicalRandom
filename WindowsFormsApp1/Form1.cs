@@ -12,7 +12,8 @@ namespace WindowsFormsApp1
 {
 	public partial class Form1 : Form
 	{
-        TextBox tb; 
+        TextBox tb;
+		TextBox tb2;
 		public Form1()
 		{
 			InitializeComponent();
@@ -38,6 +39,25 @@ namespace WindowsFormsApp1
 		{
 			tbX_location.Text =  e.Location.X.ToString();
 			tb.Text = e.Location.Y.ToString();
+			//tb2.Text = e.Location.X.ToString() + "  " + e.Location.Y.ToString();
 		}
-	}
+
+        private void Form1_DoubleClick(object sender, EventArgs e)
+        {
+            MouseEventArgs mouse = (MouseEventArgs)e;
+			Point clickMouse = mouse.Location;
+            TextBox tbXY = new TextBox();
+            tbXY.Location = clickMouse;
+            tbXY.Size = tbX_location.Size;
+            tbXY.TabIndex = tbX_location.TabIndex + tb.TabIndex +1;
+            tbXY.Name = "tbXY";
+            tbXY.Text = "Y - " + mouse.Location.Y.ToString() + "  " + "X - " + mouse.Location.X.ToString();
+            tbXY.Font = tb.Font;
+			this.tb2 = tbXY;
+           
+            Controls.Add(tbXY);
+            
+
+        }
+    }
 }

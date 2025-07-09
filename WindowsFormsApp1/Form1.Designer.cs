@@ -47,6 +47,7 @@
             this.Controls.Add(this.tbX_location);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
